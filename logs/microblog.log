@@ -1,4 +1,31 @@
-2024-11-20 16:25:46,552 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+2024-11-26 17:17:50,833 ERROR: Exception on /reset_password_request [POST] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 164, in reset_password_request
+    send_password_reset_email(user)
+  File "D:\PROJECTS\FlaskHabr\app\email.py", line 15, in send_password_reset_email
+    text_body=render_template('email/reset_password.txt',
+              ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2024-11-26 17:18:29,414 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 12:44:16,443 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 12:51:42,459 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 12:54:06,255 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:00:13,845 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:02:24,468 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:08:33,809 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:08:35,509 ERROR: Exception on / [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
 Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,114 +42,29 @@ Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
-    return render_template('user.html', user=user, posts=posts)
-                                                         ^^^^^
-NameError: name 'posts' is not defined. Did you mean: 'Post'?
-2024-11-20 16:32:44,213 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:47]
-2024-11-20 16:33:16,936 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
-Traceback (most recent call last):
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
-    return render_template('user.html', user=user, posts=posts)
-                                                         ^^^^^
-NameError: name 'posts' is not defined. Did you mean: 'Post'?
-2024-11-20 17:42:06,220 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:47]
-2024-11-20 17:42:35,364 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:47]
-2024-11-20 17:43:01,311 ERROR: Exception on /register [POST] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
-Traceback (most recent call last):
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
-    self.dialect.do_execute(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 82, in register
-    db.session.commit()
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
-    return self._proxied.commit()
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
-    self.session.flush()
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
-    self._flush(objects)
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
-    with util.safe_reraise():
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
-    flush_context.execute()
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
-    rec.execute(self)
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
-    _emit_insert_statements(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
-    result = connection.execute(
-             ^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
-    return meth(
-           ^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
-    ret = self._execute_context(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
-    return self._exec_single_context(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
-    self.dialect.do_execute(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: ('john', 'caliostr@gfmail.com', 'scrypt:32768:8:1$nsUs8JOzotNsmsEw$5710ce910b79f5af90153638317f50dee13dd5ebab186dbfae1ce74ba319b3783999699eacaf1a176ba12bf5eb28308ce2c52bbc1381b955acf0f21fc75270df', None, '2024-11-20 06:43:01.310347')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 71, in index
+    return render_template("index.html", title='Home', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\PROJECTS\FlaskHabr\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\PROJECTS\FlaskHabr\app\templates\base.html", line 33, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'.
+2024-11-29 13:19:23,372 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:20:29,803 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:21:27,943 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:23:20,614 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:25:19,870 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-29 13:26:14,149 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
