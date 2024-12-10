@@ -1,4 +1,4 @@
-2024-11-20 16:25:46,552 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+2024-11-26 10:23:18,633 ERROR: Exception on /login [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
 Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,15 +12,37 @@ Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
-    return render_template('user.html', user=user, posts=posts)
-                                                         ^^^^^
-NameError: name 'posts' is not defined. Did you mean: 'Post'?
-2024-11-20 16:32:44,213 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:47]
-2024-11-20 16:33:16,936 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 86, in login
+    return render_template('login.html', title='Sign In', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\PROJECTS\FlaskHabr\app\templates\login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PROJECTS\FlaskHabr\app\templates\base.html", line 32, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\templates\login.html", line 26, in block 'content'
+    Forgot Your Password? <a href="{{ url_for('reset_passwoerd_request') }}">Click to Reset It</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_passwoerd_request'. Did you mean 'reset_password_request' instead?
+2024-11-26 10:23:22,866 ERROR: Exception on /login [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
 Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -34,25 +56,37 @@ Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
-    return render_template('user.html', user=user, posts=posts)
-                                                         ^^^^^
-NameError: name 'posts' is not defined. Did you mean: 'Post'?
-2024-11-20 17:42:06,220 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:47]
-2024-11-20 17:42:35,364 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:47]
-2024-11-20 17:43:01,311 ERROR: Exception on /register [POST] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
-Traceback (most recent call last):
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
-    self.dialect.do_execute(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 86, in login
+    return render_template('login.html', title='Sign In', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\PROJECTS\FlaskHabr\app\templates\login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PROJECTS\FlaskHabr\app\templates\base.html", line 32, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\templates\login.html", line 26, in block 'content'
+    Forgot Your Password? <a href="{{ url_for('reset_passwoerd_request') }}">Click to Reset It</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_passwoerd_request'. Did you mean 'reset_password_request' instead?
+2024-11-26 10:26:20,117 ERROR: Exception on /login [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
 Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -66,68 +100,34 @@ Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 82, in register
-    db.session.commit()
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
-    return self._proxied.commit()
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
-    self.session.flush()
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
-    self._flush(objects)
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
-    with util.safe_reraise():
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
-    flush_context.execute()
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
-    rec.execute(self)
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
-    _emit_insert_statements(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
-    result = connection.execute(
-             ^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
-    return meth(
-           ^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
-    ret = self._execute_context(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
-    return self._exec_single_context(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
-    self.dialect.do_execute(
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: ('john', 'caliostr@gfmail.com', 'scrypt:32768:8:1$nsUs8JOzotNsmsEw$5710ce910b79f5af90153638317f50dee13dd5ebab186dbfae1ce74ba319b3783999699eacaf1a176ba12bf5eb28308ce2c52bbc1381b955acf0f21fc75270df', None, '2024-11-20 06:43:01.310347')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2024-11-21 15:53:53,365 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:46]
-2024-11-21 15:59:18,226 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:46]
-2024-11-21 16:00:08,808 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:46]
-2024-11-21 16:01:14,972 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:46]
-2024-11-25 19:54:33,109 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 86, in login
+    return render_template('login.html', title='Sign In', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "D:\PROJECTS\FlaskHabr\app\templates\login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PROJECTS\FlaskHabr\app\templates\base.html", line 32, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\templates\login.html", line 26, in block 'content'
+    Forgot Your Password? <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_passwoerd_request'. Did you mean 'reset_password_request' instead?
+2024-11-26 10:27:26,127 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]

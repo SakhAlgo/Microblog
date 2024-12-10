@@ -3,15 +3,20 @@ from app import app
 from app.forms import (LoginForm, PostForm, RegistrationForm, 
                        EditProfileForm, EmptyForm, ResetPasswordRequestForm, 
                        ResetPasswordForm)
-
-from flask_login import current_user, login_user, login_required, logout_user
-import sqlalchemy as sa
 from app import db
 from app.models import User, Post
+from app.email import send_password_reset_email
+
 from urllib.parse import urlsplit
+from flask_login import current_user, login_user, login_required, logout_user
+import sqlalchemy as sa
 
 from datetime import datetime, timezone
-from app.email import send_password_reset_email
+
+from flask_babel import _
+from flask_babel import lazy_gettext as _l
+from flask import g
+from flask_babel import get_locale
 
 @app.route('/edit_profile', methods=['POST', 'GET'])
 @login_required
@@ -33,7 +38,8 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()
-        
+    g.locale = str(get_locale())
+    
 @app.route('/user/<username>')
 @login_required
 def user(username):
@@ -78,7 +84,7 @@ def login():
     if form.validate_on_submit():
         user = db.session.scalar(sa.select(User).where(User.username == form.username.data))
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash(_('Invalid username or password'))
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')

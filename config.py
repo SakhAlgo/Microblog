@@ -20,3 +20,4 @@ class Config:
     # aiosmtpd -n -c aiosmtpd.handlers.Debugging -l localhost:8025
     
     POSTS_PER_PAGE = 3
+    LANGUAGES = ['en', 'es', 'ru']

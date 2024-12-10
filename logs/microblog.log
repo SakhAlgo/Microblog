@@ -1,31 +1,4 @@
-2024-11-26 17:17:50,833 ERROR: Exception on /reset_password_request [POST] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
-Traceback (most recent call last):
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 164, in reset_password_request
-    send_password_reset_email(user)
-  File "D:\PROJECTS\FlaskHabr\app\email.py", line 15, in send_password_reset_email
-    text_body=render_template('email/reset_password.txt',
-              ^^^^^^^^^^^^^^^
-NameError: name 'render_template' is not defined
-2024-11-26 17:18:29,414 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 12:44:16,443 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 12:51:42,459 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 12:54:06,255 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:00:13,845 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:02:24,468 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:08:33,809 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:08:35,509 ERROR: Exception on / [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+2024-12-07 21:22:58,234 ERROR: Exception on /explore [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
 Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -42,9 +15,9 @@ Traceback (most recent call last):
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 71, in index
-    return render_template("index.html", title='Home', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 155, in explore
+    return render_template('index.html', title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\templating.py", line 150, in render_template
     return _render(app, template, context)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,16 +28,59 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "D:\PROJECTS\FlaskHabr\app\templates\index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "D:\PROJECTS\FlaskHabr\app\templates\base.html", line 33, in template
-    {% else %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'.
-2024-11-29 13:19:23,372 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:20:29,803 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:21:27,943 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:23:20,614 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:25:19,870 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
-2024-11-29 13:26:14,149 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+  File "D:\PROJECTS\FlaskHabr\app\templates\index.html", line 2, in top-level template code
+    {% import "bootstrap_wtf.html" as wtf %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\templates\base.html", line 59, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\templates\index.html", line 5, in block 'content'
+    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\ext.py", line 168, in _gettext_alias
+    return __context.call(__context.resolve("gettext"), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\jinja2\ext.py", line 174, in gettext
+    rv = __context.call(func, __string)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_babel\__init__.py", line 166, in <lambda>
+    gettext=lambda s: get_translations().ugettext(s),
+                      ^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_babel\__init__.py", line 246, in get_translations
+    return get_domain().get_translations()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_babel\__init__.py", line 609, in get_translations
+    locale = get_locale()
+             ^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_babel\__init__.py", line 263, in get_locale
+    rv = babel.locale_selector()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\__init__.py", line 17, in get_locale
+    return request.accept_language.best_match(app.config['LANGUAGES'])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Request' object has no attribute 'accept_language'. Did you mean: 'accept_languages'?
+2024-12-07 21:23:36,093 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-07 21:25:57,623 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 11:29:45,168 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 13:14:09,547 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 13:29:54,852 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 13:30:46,295 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 13:31:17,612 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 13:31:34,442 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 13:33:08,322 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:13:59,601 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:14:21,649 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:16:43,625 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:30:39,205 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:34:52,505 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:35:38,756 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:37:12,885 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:38:24,320 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:39:25,930 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:39:44,793 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:40:22,103 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:40:56,967 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:43:00,003 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:44:04,350 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:44:13,562 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]
+2024-12-10 14:44:26,197 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:59]

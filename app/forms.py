@@ -8,6 +8,9 @@ from app.models import User
 from wtforms import TextAreaField
 from wtforms.validators import Length
 
+from flask_babel import lazy_gettext as _l
+from flask_babel import _
+
 class PostForm(FlaskForm):
     post = TextAreaField('Say something', validators=[
         DataRequired(), Length(min=1, max=140)])
@@ -33,7 +36,7 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username.')
     
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    username = StringField(_l('Username'), validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')

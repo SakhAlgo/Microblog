@@ -1,0 +1,127 @@
+2024-11-25 19:54:37,440 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
+    next_url = url_for('user', username=user.username, page=posts.next_num) if posts.next_num else None
+                                                                               ^^^^^
+NameError: name 'posts' is not defined. Did you mean: 'Post'?
+2024-11-25 19:54:39,170 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
+    next_url = url_for('user', username=user.username, page=posts.next_num) if posts.next_num else None
+                                                                               ^^^^^
+NameError: name 'posts' is not defined. Did you mean: 'Post'?
+2024-11-25 19:54:41,067 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
+    next_url = url_for('user', username=user.username, page=posts.next_num) if posts.next_num else None
+                                                                               ^^^^^
+NameError: name 'posts' is not defined. Did you mean: 'Post'?
+2024-11-25 19:54:41,778 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
+    next_url = url_for('user', username=user.username, page=posts.next_num) if posts.next_num else None
+                                                                               ^^^^^
+NameError: name 'posts' is not defined. Did you mean: 'Post'?
+2024-11-25 19:54:43,535 ERROR: Exception on /user/john [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
+    next_url = url_for('user', username=user.username, page=posts.next_num) if posts.next_num else None
+                                                                               ^^^^^
+NameError: name 'posts' is not defined. Did you mean: 'Post'?
+2024-11-25 19:56:10,800 INFO: Microblog startup [in D:\PROJECTS\FlaskHabr\app\__init__.py:49]
+2024-11-25 19:56:13,714 ERROR: Exception on /user/cat [GET] [in D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py:838]
+Traceback (most recent call last):
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\env\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PROJECTS\FlaskHabr\app\routes.py", line 42, in user
+    next_url = url_for('user', username=user.username, page=posts.next_num) if posts.next_num else None
+                                                                               ^^^^^
+NameError: name 'posts' is not defined. Did you mean: 'Post'?
